@@ -27,17 +27,19 @@ filetype plugin indent on    " required
 :autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp	"template file goes here.
 
 source $VIMRUNTIME/defaults.vim
-colo gruvbox
-set guifont=Consolas:h12
-"let g:airline_theme='onedark'
 set background=dark
+colo gruvbox    "Select colorscheme
+set guifont=Consolas:h12    "select font
+"let g:airline_theme='gruvbox'
 "set nowrap
+
 set nu
 augroup numbertoggle
     autocmd!
     autocmd BufEnter,FocusGained,InsertLeave * set rnu
     autocmd BufLeave,FocusLost,InsertEnter * set nornu
 augroup END
+
 set incsearch
 set tabstop =4
 set shiftwidth =4
@@ -46,12 +48,16 @@ set clipboard=unnamed
 set belloff=all
 cd E:\Compete	"Default working directory.
 imap jj <Esc>
-map <C-c> :s/^/\/\//<Enter>
-map <C-u> :s/^\/\///<Enter>
+
+map <C-c> :s/^/\/\//<Enter>     "Comment a line.
+map <C-u> :s/^\/\///<Enter>     "Uncomment a line.
 
 "--------------BULID COMMANDS----------------------
 autocmd filetype cpp nnoremap <C-b> :w <bar> !g++ -std=c++17 % -o %:r -Wl,--stack,268435456<CR>
 autocmd filetype cpp nnoremap <F9> :!%:r<CR>
+
+" Disable all blinking:
+:set guicursor+=a:blinkon0
 
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
