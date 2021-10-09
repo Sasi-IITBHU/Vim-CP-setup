@@ -4,10 +4,10 @@ set rtp+=~/vimfiles/bundle/Vundle.vim
 call vundle#begin('~/vimfiles/bundle')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
 Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'bfrg/vim-cpp-modern'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -22,17 +22,17 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-" -----------------------------NON-PLUGIN STUFF BEGINS-----------------------------------------
-
-:autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp	"template file goes here.
+" --------------------------------------------------------------------------------------------
 
 source $VIMRUNTIME/defaults.vim
-set background=dark
-colo gruvbox    "Select colorscheme
-set guifont=Consolas:h12    "select font
-"let g:airline_theme='gruvbox'
-"set nowrap
 
+set guifont=JetBrains_Mono:h12
+set termguicolors
+colo solarized
+set background=light
+let g:solarized_termcolors=256
+
+" Set relative number.
 set nu
 augroup numbertoggle
     autocmd!
@@ -40,21 +40,31 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter * set nornu
 augroup END
 
+
+"Place your template in this directory ~/vimfiles/templates/skeleton.cpp file
+:autocmd BufNewFile *.cpp 0r ~/vimfiles/templates/skeleton.cpp
+
 set incsearch
 set tabstop =4
 set shiftwidth =4
 set nofoldenable
 set clipboard=unnamed
 set belloff=all
-cd E:\Compete	"Default working directory.
+
 imap jj <Esc>
 
-map <C-c> :s/^/\/\//<Enter>     "Comment a line.
-map <C-u> :s/^\/\///<Enter>     "Uncomment a line.
+"My default working directory.
+cd E:\main
+
+map <C-c> :s/^/\/\//<Enter>
+map <C-u> :s/^\/\///<Enter>
+
 
 "--------------BULID COMMANDS----------------------
+"For windows.
 autocmd filetype cpp nnoremap <C-b> :w <bar> !g++ -std=c++17 % -o %:r -Wl,--stack,268435456<CR>
 autocmd filetype cpp nnoremap <F9> :!%:r<CR>
+
 
 " Disable all blinking:
 :set guicursor+=a:blinkon0
