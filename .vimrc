@@ -7,7 +7,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bfrg/vim-cpp-modern'
+Plugin 'juanedi/predawn.vim'
+"Plugin 'bfrg/vim-cpp-modern'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -28,9 +29,11 @@ source $VIMRUNTIME/defaults.vim
 
 set guifont=JetBrains_Mono:h12
 set termguicolors
-colo solarized
-set background=light
-let g:solarized_termcolors=256
+colo predawn
+set background=dark
+set t_md=
+set noswapfile
+"let g:solarized_termcolors=256
 
 " Set relative number.
 set nu
