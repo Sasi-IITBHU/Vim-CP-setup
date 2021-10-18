@@ -1,6 +1,7 @@
 # Vim-CP-setup
 ## my vimrc (for windows GVIM version).
 ## Installation (Windows)
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Vimlogo.svg/1022px-Vimlogo.svg.png" alt="vim" width=60px>
 
 _make sure **Git** is installed_
 [download it from here](https://git-scm.com/ "Git")
