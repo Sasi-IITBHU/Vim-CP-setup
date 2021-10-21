@@ -23,11 +23,11 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 " --------------------------------------------------------------------------------------------
-
 source $VIMRUNTIME/defaults.vim
 
 "set guifont=JetBrains_Mono:h12
 set guifont=Consolas:h13
+"set guifont=Ubuntu_Mono_derivative_Powerlin:h14
 set termguicolors
 colo gruvbox
 let g:gruvbox_contrast_dark='soft'
@@ -37,11 +37,19 @@ set noswapfile
 "let g:solarized_termcolors=256
 
 let mapleader=" "
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <leader>t :NERDTreeToggle<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+"nnoremap <C-n> :NERDTree<CR>
+"nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>c :NERDTreeClose<CR>
+
+nnoremap <leader>y ggyG
+
+
+"navigating splits
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 " Go to tab by number
 noremap <leader>1 1gt
@@ -79,9 +87,10 @@ map <C-c> :s/^/\/\//<Enter>
 map <C-u> :s/^\/\///<Enter>
 
 
+
 "--------------BULID COMMANDS----------------------
 "For windows.
-autocmd filetype cpp nnoremap <C-b> :w <bar> !g++ -std=c++17 % -o %:r -Wl,--stack,268435456<CR>
+autocmd filetype cpp nnoremap <leader>b :w <bar> !g++ -std=c++17 % -o %:r -Wl,--stack,268435456<CR>
 autocmd filetype cpp nnoremap <F9> :!%:r<CR>
 
 
