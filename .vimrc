@@ -7,8 +7,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'juanedi/predawn.vim'
-"Plugin 'bfrg/vim-cpp-modern'
+Plugin 'scrooloose/nerdtree'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -27,13 +26,30 @@ filetype plugin indent on    " required
 
 source $VIMRUNTIME/defaults.vim
 
-set guifont=JetBrains_Mono:h12
+"set guifont=JetBrains_Mono:h12
+set guifont=Consolas:h13
 set termguicolors
-colo predawn
+colo gruvbox
+let g:gruvbox_contrast_dark='soft'
 set background=dark
 set t_md=
 set noswapfile
 "let g:solarized_termcolors=256
+
+let mapleader=" "
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+nnoremap <leader>c :NERDTreeClose<CR>
+
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+
 
 " Set relative number.
 set nu
@@ -71,6 +87,9 @@ autocmd filetype cpp nnoremap <F9> :!%:r<CR>
 
 " Disable all blinking:
 :set guicursor+=a:blinkon0
+
+"Make cursor to underscore in insert mode
+":set guicursor+=i:hor20-Cursor
 
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
